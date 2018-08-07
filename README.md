@@ -1,2 +1,2 @@
 # SpatialScripts
-scripts for raster and vector data conversion
+scripts for batch processing of legacy raster and vector data for deployment in mapview in FAIMS modules
