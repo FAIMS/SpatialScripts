@@ -3,7 +3,7 @@
 set -euo pipefail  # unofficial bash strict mode, makes code more maintenable and reliable, see http://redsymbol.net/articles/unofficial-bash-strict-mode/
 
 if [ "$#" -ne 2 ]; then  # if number of arguments is not equal to two
-	echo "./makeRasters.sh  targetDir targetEPSG $#"  #
+	echo "./makeRasters.sh  targetDir targetEPSG $#"  #targetEPSG for deployment in FAIMS should be 3857
 	exit 1
 fi
 
@@ -21,4 +21,6 @@ cd $1
 tar -czf maps.$1.$2.tar.gz maps/
 
 # to give the script permission to access files via $ chmod +x ./scriptname
-# to run the script run with source directory as a child of current location and epsg.
+# to run the script run with:
+## - source directory as a child of current location (ie you navigate one level above the maps you wish to convert)
+## - target epsg - what you are converting to. Theoretically gdal can read the source (existing) projection. It's good if gdal's interpretation of source projection is the same as yours.
